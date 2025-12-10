@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .leaf {
+      fill: #2E8B57;
+    }
+    .stem {
+      stroke: #A67C52;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+  </style>
+  
+  <!-- Stem -->
+  <path class="stem" d="M50,85 Q45,65 55,45 Q60,30 50,15" fill="none"/>
+  
+  <!-- Leaves -->
+  <path class="leaf" d="M50,15 Q65,20 70,10 Q75,0 60,5 Q45,10 50,15" opacity="0.9"/>
+  <path class="leaf" d="M55,45 Q75,40 85,50 Q95,60 75,55 Q55,50 55,45" opacity="0.8"/>
+  <path class="leaf" d="M45,65 Q25,60 15,70 Q5,80 25,75 Q45,70 45,65" opacity="0.7"/>
+</svg>

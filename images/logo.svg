@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: bold;
+      fill: #FFFFFF;
+    }
+    .leaf {
+      fill: #98D8C8;
+    }
+    .circle {
+      fill: #2E8B57;
+    }
+  </style>
+  
+  <!-- Background Circle -->
+  <circle class="circle" cx="40" cy="40" r="35"/>
+  
+  <!-- Decorative Leaves -->
+  <path class="leaf" d="M40,15 Q55,20 60,10 Q65,0 50,5 Q35,10 40,15" opacity="0.9"/>
+  <path class="leaf" d="M65,40 Q75,30 85,35 Q95,40 85,45 Q75,50 65,40" opacity="0.8"/>
+  <path class="leaf" d="M40,65 Q25,60 15,70 Q5,80 25,75 Q45,70 40,65" opacity="0.7"/>
+  
+  <!-- Logo Text -->
+  <text x="90" y="45" class="logo-text" font-size="24">Saúde Mental</text>
+</svg>

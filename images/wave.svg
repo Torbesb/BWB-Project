@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100%" height="30" viewBox="0 0 1200 30" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .wave {
+      fill: #98D8C8;
+    }
+  </style>
+  
+  <path class="wave" d="M0,0 
+                       C150,40 300,40 450,20 
+                       C600,0 750,0 900,20 
+                       C1050,40 1200,40 1350,20
+                       L1350,30 L0,30 Z" />
+</svg>
