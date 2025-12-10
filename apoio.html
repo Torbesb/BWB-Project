@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jornada ao Bem-Estar</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/resp.css">
+  <link rel="shortcut icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+
+  <!-- Fontes iguais ao site -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========= Paleta e tokens (iguais aos seus) ========= */
+    :root{
+      --verde-forte:#2E8B57;
+      --verde-claro:#98D8C8;
+      --branco:#FFFFFF;
+      --preto:#333333;
+      --amarelo:#FFD166;
+      --marrom:#A67C52;
+      --sombra-suave:0 4px 8px rgba(0,+
+      =-0,0.1);
+      --borda-arredondada:15px;
+      --transicao:all .3s ease;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Nunito',sans-serif;
+      color:var(--preto);
+      background:var(--branco);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+
+    /* ====== Cabeçalho simples da página ====== */
+    .page-header{
+      background: var(--branco);
+      border-bottom:2px solid var(--verde-claro);
+      box-shadow: var(--sombra-suave);
+      position: sticky; top:0; z-index: 10;
+    }
+    .page-header .wrap{
+      max-width: 1200px; margin:0 auto; padding:16px 20px;
+      display:flex; align-items:center; gap:12px; justify-content:space-between;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      color:var(--verde-forte); font-weight:700;
+    }
+    .brand img{width:38px; height:38px; object-fit:cover; border-radius:10px}
+    .back{
+      font-weight:700; color:var(--verde-forte);
+      border:2px solid var(--verde-claro); padding:8px 14px; border-radius:999px;
+      transition:var(--transicao);
+    }
+    .back:hover{background:var(--verde-forte); color:var(--branco); border-color:var(--verde-forte)}
+
+    /* ====== Título padrão de seção ====== */
+    .section{
+      padding:40px 0 24px;
+    }
+    .container{
+      width:100%; max-width: 1100px; margin:0 auto; padding:0 20px;
+    }
+    .section-title{
+      font-family:'Comfortaa',cursive;
+      color:var(--verde-forte);
+      font-size:2rem; text-align:center; margin-bottom:28px; position:relative; padding-bottom:12px;
+    }
+    .section-title::after{
+      content:''; position:absolute; left:50%; transform:translateX(-50%); bottom:0;
+      width:80px; height:4px; border-radius:2px;
+      background: linear-gradient(90deg,var(--verde-forte),var(--verde-claro));
+    }
+
+    /* ====== LISTA DE CARTILHAS (estilo “cardápio/Amazon”) ====== */
+    .materials{
+      display:flex; flex-direction:column; gap:18px;
+    }
+
+    .material-card{
+      display:flex; align-items:center; gap:16px;
+      background:var(--branco);
+      border:2px solid var(--verde-claro);
+      border-radius: var(--borda-arredondada);
+      box-shadow: var(--sombra-suave);
+      padding:16px;
+      transition:var(--transicao);
+    }
+    .material-card:hover{
+      transform: translateY(-4px);
+      border-color: var(--verde-forte);
+    }
+
+    .material-img{
+      width:84px; height:84px; border-radius:50%;
+      object-fit:cover; flex-shrink:0;
+      border:2px solid var(--verde-claro);
+      background:#f4f8f7; /* caso a imagem não carregue */
+    }
+
+    .material-info{flex:1; min-width:0}
+    .material-info h3{
+      font-family:'Comfortaa',cursive;
+      color:var(--verde-forte);
+      font-size:1.1rem; margin:0 0 6px 0;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .material-info p{
+      color:var(--preto); font-size:0.95rem; margin:0 0 10px 0;
+    }
+
+    .material-actions{
+      display:flex; flex-direction:column; align-items:flex-end; gap:8px;
+      min-width: 160px;
+    }
+    .material-date{
+      font-weight:700; font-size:0.95rem;
+      color:var(--amarelo); /* como “preço” do cardápio */
+      white-space:nowrap;
+    }
+    .btn{
+      display:inline-block; text-align:center; font-weight:700; cursor:pointer;
+      padding:10px 16px; border-radius:12px; border:none;
+      background: var(--verde-claro); color: var(--preto);
+      box-shadow: var(--sombra-suave);
+      transition: var(--transicao);
+    }
+    .btn:hover{ background: var(--verde-forte); color: var(--branco); transform: translateY(-2px) }
+
+    /* ====== Responsivo ====== */
+    @media (max-width: 720px){
+      .material-card{ align-items:flex-start }
+      .material-actions{ width:100%; align-items:flex-start }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO DA PÁGINA -->
+  <div class="page-header">
+    <div class="wrap">
+      <div class="brand">
+        <!-- troque o src abaixo pelo seu logo se quiser -->
+        <div class="logo">
+                <img src="images/vector-de-design-de-logotipo-de-cuidados-de-saude-de-folha-de-amor_690981-2202.avif" alt="Logo Saúde Mental">
+                <span style="display:flex; align-items:center; gap:10px;
+      color:var(--verde-forte); font-weight:700">BWB - Behind The Web's Beuaty</span>
+            </div>
+      </div>
+      <a class="back" href="index.html#ajuda">← Voltar</a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Materiais de Apoio</h2>
+
+      <div class="materials">
+        <!-- ITEM 1 -->
+        <article class="material-card">
+          <img class="material-img" src="images/Captura de tela 2025-09-08 203134.png" alt="Cartilha sobre Saúde Mental - Instituto Federal Paraíba">
+          <div class="material-info">
+            <h3>Cartilha sobre Saúde Mental - Instituto Federal Paraíba</h3>
+            <p>Cartilha elaborada pelo GT de Saúde Mental do IFPB, traz orientações sobre prevenção, promoção do bem-estar emocional e serviços de apoio disponíveis..</p>
+          </div>
+          <div class="material-actions">
+            <span class="material-date">2019</span>
+            <a class="btn" href="https://www.ifpb.edu.br/prae/assistencia-estudantil/panfleto-oficial-pdf.pdf" target="_blank" rel="noopener">Acessar cartilha</a>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="material-card">
+          <img class="material-img" src="images/Captura de tela 2025-09-08 204547.png" alt="Cartilha de Orientação de Atenção à Saúde Mental - AGU (Advocacia-Geral da União)">
+          <div class="material-info">
+          <h3>Cartilha de Orientação de Atenção à Saúde Mental - AGU (Advocacia-Geral da União)</h3>
+            <p>Cartilha elaborada pela AGU para orientar apoiadores do programa ‘Sua Vida Tem Valor’ sobre como identificar e agir ao perceber sofrimento mental no ambiente de trabalho.</p>
+          </div>
+          <div class="material-actions">
+            <span class="material-date">04/09/2020</span>
+            <a class="btn" href="https://www.gov.br/agu/pt-br/comunicacao/noticias/cartilha_setembroamarelo_2020-2.pdf" target="_blank" rel="noopener">Acessar cartilha</a>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="material-card">
+          <img class="material-img" src="images/Captura de tela 2025-09-08 205121.png" alt="Você não é (só) o que você come - Instituto Federal Ceará">
+          <div class="material-info">
+            <h3>Você não é (só) o que você come - Instituto Federal Ceará</h3>
+            <p>Cartilha elaborada por nutricionistas do IFCE para promover uma relação mais saudável com a comida e o corpo, como parte da campanha ‘IFCE em alerta para os Transtornos Alimentares’.</p>
+          </div>
+          <div class="material-actions">
+            <span class="material-date">2021</span>
+            <a class="btn" href="https://www.cp.ufmg.br/wp-content/uploads/2023/02/Cartilha-Voce-nao-e-so-o-que-voce-come_compressed.pdf" target="_blank" rel="noopener">Acessar cartilha</a>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="material-card">
+          <img class="material-img" src="images/Captura de tela 2025-09-08 214619.png" alt="Guia Alimentar para a População Brasileira">
+          <div class="material-info">
+            <h3>Guia Alimentar para a População Brasileira</h3>
+            <p>Guia oficial do Ministério da Saúde com diretrizes sobre alimentação adequada e saudável para a população brasileira.</p>
+          </div>
+          <div class="material-actions">
+            <span class="material-date">2ª edição, 2014</span>
+            <a class="btn" href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf" target="_blank" rel="noopener">Acessar cartilha</a>
+          </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article class="material-card">
+          <img class="material-img" src="images/Captura de tela 2025-09-08 214950.png" alt="Cartilha de Alimentação Saudável">
+          <div class="material-info">
+            <h3>Cartilha de Alimentação Saudável</h3>
+            <p>Cartilha elaborada pela equipe de nutrição da CASACARESC, com orientações sobre alimentação equilibrada, leitura de rótulos, receitas saudáveis e hábitos alimentares que promovem bem-estar.</p>
+          </div>
+          <div class="material-actions">
+            <span class="material-date">2015</span>
+            <a class="btn" href="https://www.casacaresc.org.br/files/sua-saude/cartilha-alimentacao" target="_blank" rel="noopener">Acessar cartilha</a>
+          </div>
+        </article>
+
+        <!-- ITEM 6 -->
+        <article class="material-card">
+          <img class="material-img" src="images/Captura de tela 2025-09-08 215316.png" alt="Cartilha de Hábitos Alimentares Inteligentes - Unimed">
+          <div class="material-info">
+            <h3>Cartilha de Hábitos Alimentares Inteligentes - Unimed</h3>
+            <p>Cartilha elaborada pela Unimed com orientações sobre a adoção de uma alimentação saudável, destacando a importância do consumo de alimentos naturais e a redução de sódio.</p>
+          </div>
+          <div class="material-actions">
+            <span class="material-date">Data desconhecida</span>
+            <a class="btn" href="https://www.unimed.coop.br/portalunimed/cartilhas/habitos-alimentares/pdf/cartilha.pdf" target="_blank" rel="noopener">Acessar cartilha</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom container">
+            <p style="text-align: center;">&copy; 2025 Saúde Mental e Alimentar dos jovens.  Desenvolvido por Bianca Santos, Brenda Torbes e Wanderson da Silva.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
